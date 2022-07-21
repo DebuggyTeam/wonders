@@ -1,0 +1,24 @@
+name: Suggestion
+description: Create a suggestion for a biome you want to see in Wonders.
+labels: [suggestion]
+body:
+  - type: markdown
+    attributes:
+      value: "## Welcome!"
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking your time to create your suggestion! If you want to discuss your suggestion, join us on Discord.
+        Make sure you are running the latest version of Wonders before making the suggestion.
+  - type: textarea
+    id: description
+    attributes:
+      label: Describe how your suggestion will work if applicable.
+      description: "Describe the suggestion as clearly as possible. More info means the suggestion is more likely to be accepted."
+      value: |
+        Better beaches will make the beaches that generate in Minecraft bigger when they meet the ocean.
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional context
+      description: "Add any other context about the suggestion here."
