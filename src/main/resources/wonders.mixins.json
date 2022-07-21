@@ -5,7 +5,7 @@
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [],
 	"client": [
-		"io.github.debuggyteam.wonders.mixin.TitleScreenMixin"
+		"TitleScreenMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
