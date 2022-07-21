@@ -88,7 +88,7 @@ publishing {
 
 modrinth {
 	token = System.getenv("MODRINTH_TOKEN")
-	projectId = "arch-ex"
+	projectId = "wonders"
 	uploadFile = remapJar
 	gameVersions = [libs.versions.minecraft.get()]
 	loaders = ["quilt"]
