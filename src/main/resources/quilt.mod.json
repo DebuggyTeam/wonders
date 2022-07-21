@@ -5,10 +5,10 @@
 		"id": "wonders",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mod Name",
+			"name": "Wonders",
 			"description": "A short description of your mod.",
 			"contributors": {
-				"Me!": "Owner"
+				"Me!": "The DebuggyTeam"
 			},
 			"contact": {
 				"homepage": "",
@@ -19,7 +19,7 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.debuggyteam.wonders.ExampleMod"
+			"init": "io.github.debuggyteam.wonders.Wonders"
 		},
 		"depends": [
 			{
