@@ -1,5 +1,5 @@
 name: Bug Report
-description: Create a bug report to help us fix bugs in Architecture Extensions.
+description: Create a bug report to help us fix bugs in Wonders.
 labels: [bug]
 body:
   - type: markdown
@@ -9,7 +9,7 @@ body:
     attributes:
       value: |
         Thanks for taking your time to report this bug! If you need real-time help, join us on Discord.
-        Make sure you are running the latest version of Architecture Extensions before reporting.
+        Make sure you are running the latest version of Wonders before reporting.
   - type: textarea
     id: description
     attributes:
