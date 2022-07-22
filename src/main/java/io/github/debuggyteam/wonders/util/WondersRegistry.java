@@ -8,15 +8,15 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.util.registry.Registry;
 
 public class WondersRegistry {
-	public static Item registerItem(String itemPath) {
-		return Registry.register(Registry.ITEM, Wonders.ID(itemPath), new Item(new Item.Settings().group(ItemGroup.MISC)));
+	public static Item registerItem(String itemName) {
+		return Registry.register(Registry.ITEM, Wonders.ID(itemName), new Item(new Item.Settings().group(ItemGroup.MISC)));
 	}
 
-	public static Block registerBlock(String itemPath, Block block){
-		return Registry.register(Registry.BLOCK, Wonders.ID(itemPath), block);
+	public static Block registerBlock(String blockName, Block block){
+		return Registry.register(Registry.BLOCK, Wonders.ID(blockName), block);
 	}
 
-	public static Item registerBlockItem(String itemPath, Block block) {
-		return Registry.register(Registry.ITEM, Wonders.ID(itemPath), new BlockItem(block, new Item.Settings().group(ItemGroup.MISC)));
+	public static Item registerBlockItem(String itemName, Block block) {
+		return Registry.register(Registry.ITEM, Wonders.ID(itemName), new BlockItem(block, new Item.Settings().group(ItemGroup.MISC)));
 	}
 }

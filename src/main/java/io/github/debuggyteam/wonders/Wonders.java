@@ -15,8 +15,8 @@ public class Wonders implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Wonders");
 
 	private static final String MOD_ID = "wonders";
-	public static Identifier ID(String path) {
-		return new Identifier(MOD_ID, path);
+	public static Identifier ID(String name) {
+		return new Identifier(MOD_ID, name);
 	}
 
 	@Override
