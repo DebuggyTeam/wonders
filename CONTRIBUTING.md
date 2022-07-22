@@ -57,16 +57,3 @@ public class Example {
     }
 }
 ```
-
-```java
-import java.util.ArrayList;
-
-public class Example {
-    public static void main(String args[]) {
-        int x = 1;
-        float y = 3.1415;
-        double z = 1.00;
-        String y = "This is good variable formatting";
-    }
-}
-```
