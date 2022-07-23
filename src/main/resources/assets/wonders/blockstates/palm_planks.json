@@ -1,5 +1,5 @@
 {
 	"variants": {
-		"": { "model": "wonders:block/palm_planks" }
+		"": { "model": "wonders:block/palm_wood/palm_planks" }
 	}
 }

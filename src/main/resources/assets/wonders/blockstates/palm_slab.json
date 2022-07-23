@@ -1,13 +1,13 @@
 {
 	"variants": {
 		"type=bottom": {
-			"model": "wonders:block/palm_slab"
+			"model": "wonders:block/palm_wood/palm_slab"
 		},
 		"type=double": {
-			"model": "wonders:block/palm_planks"
+			"model": "wonders:block/palm_wood/palm_planks"
 		},
 		"type=top": {
-			"model": "wonders:block/palm_slab_top"
+			"model": "wonders:block/palm_wood/palm_slab_top"
 		}
 	}
 }

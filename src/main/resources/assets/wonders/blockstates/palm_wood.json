@@ -1,15 +1,15 @@
 {
   "variants": {
     "axis=x": {
-      "model": "wonders:block/palm_wood",
+      "model": "wonders:block/palm_wood/palm_wood",
       "x": 90,
       "y": 90
     },
     "axis=y": {
-      "model": "wonders:block/palm_wood"
+      "model": "wonders:block/palm_wood/palm_wood"
     },
     "axis=z": {
-      "model": "wonders:block/palm_wood",
+      "model": "wonders:block/palm_wood/palm_wood",
       "x": 90
     }
   }

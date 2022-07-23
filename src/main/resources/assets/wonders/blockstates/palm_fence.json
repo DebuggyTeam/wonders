@@ -2,12 +2,12 @@
 	"multipart": [
 		{
 			"apply": {
-				"model": "wonders:block/palm_fence_post"
+				"model": "wonders:block/palm_wood/palm_fence_post"
 			}
 		},
 		{
 			"apply": {
-				"model": "wonders:block/palm_fence_side",
+				"model": "wonders:block/palm_wood/palm_fence_side",
 				"uvlock": true
 			},
 			"when": {
@@ -16,7 +16,7 @@
 		},
 		{
 			"apply": {
-				"model": "wonders:block/palm_fence_side",
+				"model": "wonders:block/palm_wood/palm_fence_side",
 				"uvlock": true,
 				"y": 90
 			},
@@ -26,7 +26,7 @@
 		},
 		{
 			"apply": {
-				"model": "wonders:block/palm_fence_side",
+				"model": "wonders:block/palm_wood/palm_fence_side",
 				"uvlock": true,
 				"y": 180
 			},
@@ -36,7 +36,7 @@
 		},
 		{
 			"apply": {
-				"model": "wonders:block/palm_fence_side",
+				"model": "wonders:block/palm_wood/palm_fence_side",
 				"uvlock": true,
 				"y": 270
 			},
