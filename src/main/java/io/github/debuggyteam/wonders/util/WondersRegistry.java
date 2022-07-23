@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 
 public class WondersRegistry {
 	public static Item registerItem(String itemName) {
-		return Registry.register(Registry.ITEM, Wonders.ID(itemName), new Item(new Item.Settings().group(ItemGroup.MISC)));
+		return Registry.register(Registry.ITEM, Wonders.ID(itemName), new Item(new Item.Settings().group(Wonders.itemGroup)));
 	}
 
 	public static Block registerBlock(String blockName, Block block){
@@ -17,6 +17,6 @@ public class WondersRegistry {
 	}
 
 	public static Item registerBlockItem(String itemName, Block block) {
-		return Registry.register(Registry.ITEM, Wonders.ID(itemName), new BlockItem(block, new Item.Settings().group(ItemGroup.MISC)));
+		return Registry.register(Registry.ITEM, Wonders.ID(itemName), new BlockItem(block, new Item.Settings().group(Wonders.itemGroup)));
 	}
 }
