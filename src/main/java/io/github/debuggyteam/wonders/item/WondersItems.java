@@ -23,6 +23,7 @@ public class WondersItems {
 	public static Item PALM_STAIRS = WondersRegistry.registerBlockItem("palm_stairs", WondersBlocks.PALM_STAIRS);
 	public static Item PALM_FENCE = WondersRegistry.registerBlockItem("palm_fence", WondersBlocks.PALM_FENCE);
 	public static Item PALM_SLAB = WondersRegistry.registerBlockItem("palm_slab", WondersBlocks.PALM_SLAB);
+	public static Item PALM_TRAPDOOR = WondersRegistry.registerBlockItem("palm_trapdoor", WondersBlocks.PALM_TRAPDOOR);
 
 	public static void init(){
 	}

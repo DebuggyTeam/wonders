@@ -42,6 +42,14 @@ public class WondersBlocks {
 			QuiltBlockSettings.copy(Blocks.OAK_SLAB).sounds(BlockSoundGroup.WOOD).strength(2.0f)
 	));
 
+	public static final TrapdoorBlock PALM_TRAPDOOR = (TrapdoorBlock) WondersRegistry.registerBlock("palm_trapdoor", new TrapdoorBlock(
+			QuiltBlockSettings.copy(Blocks.OAK_TRAPDOOR).sounds(BlockSoundGroup.WOOD).strength(2.0f)
+	));
+
+	//public static final SignBlock PALM_SIGN = WondersRegistry.registerBlock("palm_sign", new SignBlock(
+	//		Blocks.OAK_PLANKS.getDefaultState(), QuiltBlockSettings.copy(Blocks.OAK_SIGN).sounds(BlockSoundGroup.WOOD).strength(2.0f)
+	//));
+
 	private static Block createBlock(Material material, Float strength){
 		return new Block(QuiltBlockSettings.of(material).strength(strength));
 	}
