@@ -30,6 +30,7 @@ public class Wonders implements ModInitializer {
 
 		WondersItems.init();
 		WondersBlocks.init();
+		WondersBiomes.registerWondersBiomes();
 
 		WondersUtils.registerUtils();
 

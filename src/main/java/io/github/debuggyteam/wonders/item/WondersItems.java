@@ -25,6 +25,5 @@ public class WondersItems {
 	public static Item PALM_SLAB = WondersRegistry.registerBlockItem("palm_slab", WondersBlocks.PALM_SLAB);
 	public static Item PALM_TRAPDOOR = WondersRegistry.registerBlockItem("palm_trapdoor", WondersBlocks.PALM_TRAPDOOR);
 
-	public static void init(){
-	}
+	public static void init(){}
 }

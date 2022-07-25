@@ -54,7 +54,5 @@ public class WondersBlocks {
 		return new Block(QuiltBlockSettings.of(material).strength(strength));
 	}
 
-	public static void init(){
-
-	}
+	public static void init(){}
 }
