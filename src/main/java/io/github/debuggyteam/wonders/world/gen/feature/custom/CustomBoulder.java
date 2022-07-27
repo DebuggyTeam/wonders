@@ -1,26 +1,33 @@
 package io.github.debuggyteam.wonders.world.gen.feature.custom;
 
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.intprovider.IntProvider;
 import net.minecraft.util.random.RandomGenerator;
 import net.minecraft.world.StructureWorldAccess;
 import net.minecraft.world.gen.decorator.PlacementModifierType;
 import net.minecraft.world.gen.decorator.RarityFilterPlacementModifier;
-import net.minecraft.world.gen.feature.DefaultFeatureConfig;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.PlacementModifier;
-import net.minecraft.world.gen.feature.SingleStateFeatureConfig;
+import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.feature.util.FeatureContext;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
-public class CustomBoulder extends Feature<SingleStateFeatureConfig> {
-    public CustomBoulder(Codec<SingleStateFeatureConfig> configCodec) {
+public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
+    public record BoulderConfig(IntProvider baseSize, IntProvider sizeVariation, BlockStateProvider exteriorBlock, BlockStateProvider interiorBlock) implements FeatureConfig {
+        public static final Codec<BoulderConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
+                IntProvider.VALUE_CODEC.fieldOf("base_size").forGetter(BoulderConfig::baseSize),
+                IntProvider.VALUE_CODEC.fieldOf("size_variation").forGetter(BoulderConfig::sizeVariation)
+        ).apply(instance, instance.stable(BoulderConfig::new)));
+    }
+
+    public CustomBoulder(Codec<BoulderConfig> configCodec) {
         super(configCodec);
     }
 
     @Override
-    public boolean place(FeatureContext<SingleStateFeatureConfig> context) {
+    public boolean place(FeatureContext<BoulderConfig> context) {
         /*
         create a boulder that has a varying shape, optionally; have the boulder contain ores
         iron: 2.5% chance, copper: 1.5% chance
@@ -30,7 +37,7 @@ public class CustomBoulder extends Feature<SingleStateFeatureConfig> {
         StructureWorldAccess worldGenWorldAccess = context.getWorld();
         RandomGenerator random = context.getRandom();
 
-        SingleStateFeatureConfig singleStateFeatureConfig;
+        BoulderConfig singleStateFeatureConfig;
         for(singleStateFeatureConfig = context.getConfig(); position.getY() > worldGenWorldAccess.getBottomY() + 3; position = position.down()) {
             if (!worldGenWorldAccess.isAir(position.down())) {
                 BlockState blockState = worldGenWorldAccess.getBlockState(position.down());
