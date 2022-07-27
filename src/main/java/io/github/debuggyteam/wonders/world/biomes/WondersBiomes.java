@@ -23,6 +23,9 @@ public class WondersBiomes {
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addJungleMobs(spawnBuilder);
         DefaultBiomeFeatures.addMossyRocks(builder);
+        DefaultBiomeFeatures.addDefaultOres(builder);
+        DefaultBiomeFeatures.addAmethystGeodes(builder);
+        DefaultBiomeFeatures.addUndergroundVariety(builder);
         return (new Biome.Builder()
                 .precipitation(Biome.Precipitation.RAIN)
                 .temperature(0.5f)
