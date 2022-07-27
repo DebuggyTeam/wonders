@@ -1,14 +1,23 @@
 package io.github.debuggyteam.wonders;
 
+import net.minecraft.structure.Structure;
+import net.minecraft.util.Holder;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.DensityConstants;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.decorator.BiomePlacementModifier;
+import net.minecraft.world.gen.decorator.InSquarePlacementModifier;
+import net.minecraft.world.gen.decorator.NoiseBasedCountPlacementModifier;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
+import net.minecraft.world.gen.feature.VegetationConfiguredFeatures;
 import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
+import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
+import net.minecraft.world.gen.surfacebuilder.SurfaceBuilder;
+import net.minecraft.world.gen.surfacebuilder.SurfaceRules;
 import org.quiltmc.qsl.resource.loader.api.ResourceLoader;
 
 import static io.github.debuggyteam.wonders.Wonders.ID;
@@ -22,9 +31,10 @@ public class WondersBiomes {
 
     private static Biome createBambooForest() {
         GenerationSettings.Builder builder = new GenerationSettings.Builder()
-                .feature(GenerationStep.Feature.VEGETAL_DECORATION, VegetationPlacedFeatures.BAMBOO);
+                .feature(GenerationStep.Feature.VEGETAL_DECORATION, WondersVegetationPlacedFeatures.LOTS_OF_BAMBOO);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addJungleMobs(spawnBuilder);
+        DefaultBiomeFeatures.addMossyRocks(builder);
         return (new Biome.Builder()
                 .precipitation(Biome.Precipitation.RAIN)
                 .temperature(0.5f)
