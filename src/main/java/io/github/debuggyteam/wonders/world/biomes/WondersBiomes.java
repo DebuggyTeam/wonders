@@ -1,6 +1,7 @@
 package io.github.debuggyteam.wonders.world.biomes;
 
 import io.github.debuggyteam.wonders.world.gen.feature.WondersVegetationPlacedFeatures;
+import io.github.debuggyteam.wonders.world.gen.feature.custom.CustomBoulder;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
@@ -19,6 +20,7 @@ public class WondersBiomes {
 
     private static Biome createBambooForest() {
         GenerationSettings.Builder builder = new GenerationSettings.Builder()
+                //.feature(GenerationStep.Feature.RAW_GENERATION, WondersVegetationPlacedFeatures.)
                 .feature(GenerationStep.Feature.VEGETAL_DECORATION, WondersVegetationPlacedFeatures.LOTS_OF_BAMBOO);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addJungleMobs(spawnBuilder);
