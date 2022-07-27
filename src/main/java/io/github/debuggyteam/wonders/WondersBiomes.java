@@ -4,6 +4,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.*;
+import net.minecraft.world.gen.DensityConstants;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.PlacedFeature;
@@ -31,10 +32,13 @@ public class WondersBiomes {
                 .downfall(0.7f)
                 .effects(
                         (new BiomeEffects.Builder())
-                                .waterColor(0x129900)
-                                .waterFogColor(0x121212)
-                                .fogColor(0x990000)
-                                .skyColor(0)
+                                .skyColor(0x79A6FF)
+                                .fogColor(0x79A6FF)
+                                .grassColor(0x79C05A)
+                                .grassColorModifier(BiomeEffects.GrassColorModifier.NONE)
+                                .foliageColor(0x59AE30)
+                                .waterColor(0x3F76E4)
+                                .waterFogColor(0x1E97F2)
                                 .build())
                 .generationSettings(builder.build())
                 .spawnSettings(spawnBuilder.build())
