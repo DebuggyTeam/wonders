@@ -3,6 +3,7 @@ package io.github.debuggyteam.wonders;
 import io.github.debuggyteam.wonders.block.WondersBlocks;
 import io.github.debuggyteam.wonders.item.WondersItems;
 import io.github.debuggyteam.wonders.util.WondersUtils;
+import io.github.debuggyteam.wonders.world.biomes.WondersBiomes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
