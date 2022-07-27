@@ -10,6 +10,9 @@ import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
 import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 
 
+/*
+Made by Joost
+ */
 public class WondersVegetationPlacedFeatures extends VegetationPlacedFeatures {
     public static final Holder<PlacedFeature> LOTS_OF_BAMBOO;
     

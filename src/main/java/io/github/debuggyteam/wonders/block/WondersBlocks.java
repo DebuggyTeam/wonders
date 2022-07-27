@@ -6,6 +6,9 @@ import net.minecraft.sound.BlockSoundGroup;
 import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings;
 
 public class WondersBlocks {
+	/*
+	Made by Joost
+	 */
 	public static final Block TEST_BLOCK = WondersRegistry.registerBlock("test_block", createBlock(Material.WOOD, 2.0f));
 
 	// Palm tree logs
