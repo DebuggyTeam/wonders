@@ -15,6 +15,13 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
+    /*
+    create a boulder that has a varying shape, optionally; have the boulder contain ores
+    iron: 2.5% chance, copper: 1.5% chance
+
+    this could be expanded to have an outer shell, and an inner shell with ores thrown in
+    could be used as a meteor(ite) too
+     */
     public record BoulderConfig(IntProvider baseSize, BlockStateProvider interiorBlock) implements FeatureConfig {
         public static final Codec<BoulderConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 IntProvider.VALUE_CODEC.fieldOf("base_size").forGetter(BoulderConfig::baseSize),
@@ -30,11 +37,6 @@ public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
 
     @Override
     public boolean place(FeatureContext<BoulderConfig> context) {
-        /*
-        create a boulder that has a varying shape, optionally; have the boulder contain ores
-        iron: 2.5% chance, copper: 1.5% chance
-         */
-
         BlockPos position = context.getOrigin();
         StructureWorldAccess worldGenWorldAccess = context.getWorld();
         RandomGenerator random = context.getRandom();
