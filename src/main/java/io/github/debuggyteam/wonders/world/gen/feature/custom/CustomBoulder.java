@@ -15,10 +15,12 @@ import net.minecraft.world.gen.feature.util.FeatureContext;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
 public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
-    public record BoulderConfig(IntProvider baseSize, IntProvider sizeVariation, BlockStateProvider exteriorBlock, BlockStateProvider interiorBlock) implements FeatureConfig {
+    public record BoulderConfig(IntProvider baseSize, BlockStateProvider interiorBlock) implements FeatureConfig {
         public static final Codec<BoulderConfig> CODEC = RecordCodecBuilder.create(instance -> instance.group(
                 IntProvider.VALUE_CODEC.fieldOf("base_size").forGetter(BoulderConfig::baseSize),
-                IntProvider.VALUE_CODEC.fieldOf("size_variation").forGetter(BoulderConfig::sizeVariation)
+                //IntProvider.VALUE_CODEC.fieldOf("size_variation").forGetter(BoulderConfig::sizeVariation),
+                BlockStateProvider.TYPE_CODEC.fieldOf("interior_block").forGetter(BoulderConfig::interiorBlock)
+                //BlockStateProvider.TYPE_CODEC.fieldOf("exterior_block").forGetter(BoulderConfig::exteriorBlock)
         ).apply(instance, instance.stable(BoulderConfig::new)));
     }
 
@@ -37,8 +39,8 @@ public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
         StructureWorldAccess worldGenWorldAccess = context.getWorld();
         RandomGenerator random = context.getRandom();
 
-        BoulderConfig singleStateFeatureConfig;
-        for(singleStateFeatureConfig = context.getConfig(); position.getY() > worldGenWorldAccess.getBottomY() + 3; position = position.down()) {
+        BoulderConfig config;
+        for(config = context.getConfig(); position.getY() > worldGenWorldAccess.getBottomY() + 3; position = position.down()) {
             if (!worldGenWorldAccess.isAir(position.down())) {
                 BlockState blockState = worldGenWorldAccess.getBlockState(position.down());
                 if (isSoil(blockState) || isStone(blockState)) {
@@ -50,7 +52,7 @@ public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
         if (position.getY() <= worldGenWorldAccess.getBottomY() + 5) {
             return false;
         } else {
-            for(int i = 0; i < 5; i++) {
+            for(int i = 0; i < config.baseSize.get(random); i++) {
                 int j = random.nextInt(3);
                 int k = random.nextInt(5);
                 int l = random.nextInt(4);
@@ -59,7 +61,7 @@ public class CustomBoulder extends Feature<CustomBoulder.BoulderConfig> {
 
                 for (BlockPos position2 : BlockPos.iterate(position.add(-j, -k, -l), position.add(j, k, l))) {
                     if (position2.getSquaredDistance(position) <= (double)(rockShape * rockShape)) {
-                        worldGenWorldAccess.setBlockState(position2, singleStateFeatureConfig.state, 4);
+                        worldGenWorldAccess.setBlockState(position2, config.interiorBlock().getBlockState(context.getRandom(), position), 4);
                     }
                 }
 
