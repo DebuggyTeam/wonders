@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 /*
 Made by Joost
  */
-public class WondersVegetationPlacedFeatures extends VegetationPlacedFeatures {
+public class WondersFeatures {
     public static final Holder<PlacedFeature> LOTS_OF_BAMBOO;
 
     static {

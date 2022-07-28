@@ -4,19 +4,16 @@ import io.github.debuggyteam.wonders.block.WondersBlocks;
 import io.github.debuggyteam.wonders.item.WondersItems;
 import io.github.debuggyteam.wonders.util.WondersUtils;
 import io.github.debuggyteam.wonders.world.biomes.WondersBiomes;
-import io.github.debuggyteam.wonders.world.gen.feature.custom.CustomBoulder;
+import io.github.debuggyteam.wonders.world.gen.feature.OreBoulder;
 import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.Holder;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.ConstantIntProvider;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
@@ -39,10 +36,10 @@ public class Wonders implements ModInitializer {
 		return new Identifier(MOD_ID, name);
 	}
 
-	public static final ItemGroup itemGroup = QuiltItemGroup.builder(ID("itemgroup")).icon(() -> new ItemStack(WondersItems.TEST)).build();
+	public static final ItemGroup GROUP = QuiltItemGroup.builder(ID("itemgroup")).icon(() -> new ItemStack(WondersItems.TEST)).build();
 
-	private static final Feature<CustomBoulder.BoulderConfig> BOULDER = new CustomBoulder(CustomBoulder.BoulderConfig.CODEC);
-	public static final ConfiguredFeature<?, ?> ROCK = BOULDER.configure(new CustomBoulder.BoulderConfig(ConstantIntProvider.create(15),
+	private static final Feature<OreBoulder.OreBoulderConfiguration> BOULDER = new OreBoulder(OreBoulder.OreBoulderConfiguration.CODEC);
+	public static final ConfiguredFeature<?, ?> ROCK = BOULDER.configure(new OreBoulder.OreBoulderConfiguration(ConstantIntProvider.create(15),
 					new SimpleBlockStateProvider(Blocks.STONE.getDefaultState())))
 			.decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
 			.spreadHorizontally()
