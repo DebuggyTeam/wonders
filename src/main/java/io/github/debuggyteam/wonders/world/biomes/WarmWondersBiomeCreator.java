@@ -1,6 +1,6 @@
 package io.github.debuggyteam.wonders.world.biomes;
 
-import io.github.debuggyteam.wonders.world.gen.feature.WondersFeatures;
+import io.github.debuggyteam.wonders.world.gen.feature.WondersPlacedFeatures;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
@@ -9,10 +9,11 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 
 public class WarmWondersBiomeCreator {
+
 	public static Biome createBambooForest() {
 		GenerationSettings.Builder builder = new GenerationSettings.Builder()
-				//.feature(GenerationStep.Feature.RAW_GENERATION, WondersVegetationPlacedFeatures.)
-				.feature(GenerationStep.Feature.VEGETAL_DECORATION, WondersFeatures.LOTS_OF_BAMBOO);
+				.feature(GenerationStep.Feature.RAW_GENERATION, WondersPlacedFeatures.COPPER_IRON_BOULDER)
+				.feature(GenerationStep.Feature.VEGETAL_DECORATION, WondersPlacedFeatures.LOTS_OF_BAMBOO);
 		SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 		DefaultBiomeFeatures.addJungleMobs(spawnBuilder);
 		DefaultBiomeFeatures.addMossyRocks(builder);

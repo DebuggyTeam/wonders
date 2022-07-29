@@ -1,27 +1,20 @@
 package io.github.debuggyteam.wonders.world.gen.feature;
 
-import net.minecraft.util.Holder;
-import net.minecraft.world.gen.decorator.BiomePlacementModifier;
-import net.minecraft.world.gen.decorator.InSquarePlacementModifier;
-import net.minecraft.world.gen.decorator.NoiseBasedCountPlacementModifier;
-import net.minecraft.world.gen.feature.PlacedFeature;
-import net.minecraft.world.gen.feature.VegetationConfiguredFeatures;
-import net.minecraft.world.gen.feature.VegetationPlacedFeatures;
-import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
+import io.github.debuggyteam.wonders.Wonders;
+import net.minecraft.util.registry.Registry;
+import net.minecraft.world.gen.feature.Feature;
+import net.minecraft.world.gen.feature.FeatureConfig;
 
 /*
 Made by Joost
  */
 public class WondersFeatures {
-    public static final Holder<PlacedFeature> LOTS_OF_BAMBOO;
+	public static Feature<OreBoulderConfig> ORE_BOULDER = new OreBoulder<>(OreBoulderConfig.CODEC);
 
-    static {
-        LOTS_OF_BAMBOO = PlacedFeatureUtil.register(
-                "lots_of_bamboo",
-                VegetationConfiguredFeatures.BAMBOO_SOME_PODZOL,
-                NoiseBasedCountPlacementModifier.create(115, 75.5, 0.73),
-                InSquarePlacementModifier.getInstance(),
-                PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP,
-                BiomePlacementModifier.getInstance());
-    }
+	public static void init() {
+		register(ORE_BOULDER, "ore_boulder");
+	}
+	private static <FC extends FeatureConfig> void register(Feature<FC> feature, String name) {
+		Registry.register(Registry.FEATURE, Wonders.ID(name), feature);
+	}
 }

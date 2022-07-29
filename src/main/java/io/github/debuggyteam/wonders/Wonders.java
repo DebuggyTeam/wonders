@@ -2,19 +2,11 @@ package io.github.debuggyteam.wonders;
 
 import io.github.debuggyteam.wonders.block.WondersBlocks;
 import io.github.debuggyteam.wonders.item.WondersItems;
-import io.github.debuggyteam.wonders.util.WondersUtils;
 import io.github.debuggyteam.wonders.world.biomes.WondersBiomes;
-import io.github.debuggyteam.wonders.world.gen.feature.OreBoulder;
-import net.minecraft.block.Blocks;
+import io.github.debuggyteam.wonders.world.gen.feature.WondersFeatures;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.intprovider.ConstantIntProvider;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.Heightmap;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.Feature;
-import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.quiltmc.qsl.item.group.api.QuiltItemGroup;
@@ -32,30 +24,18 @@ public class Wonders implements ModInitializer {
 	Made by Joost
 	 */
 	private static final String MOD_ID = "wonders";
+	public static final ItemGroup GROUP = QuiltItemGroup.builder(ID("itemgroup")).icon(() -> new ItemStack(WondersItems.TEST)).build();
+
 	public static Identifier ID(String name) {
 		return new Identifier(MOD_ID, name);
 	}
 
-	public static final ItemGroup GROUP = QuiltItemGroup.builder(ID("itemgroup")).icon(() -> new ItemStack(WondersItems.TEST)).build();
-
-	private static final Feature<OreBoulder.OreBoulderConfiguration> BOULDER = new OreBoulder(OreBoulder.OreBoulderConfiguration.CODEC);
-	public static final ConfiguredFeature<?, ?> ROCK = BOULDER.configure(new OreBoulder.OreBoulderConfiguration(ConstantIntProvider.create(15),
-					new SimpleBlockStateProvider(Blocks.STONE.getDefaultState())))
-			.decorate(Decorator.HEIGHTMAP.configure(new HeightmapDecoratorConfig(Heightmap.Type.OCEAN_FLOOR_WG)))
-			.spreadHorizontally()
-			.applyChance(5);
-
-
-
 	@Override
 	public void onInitialize(ModContainer mod) {
-
-		Registry.register(Registry.FEATURE, new Identifier("wonders", "rock"), ROCK);
-		WondersItems.init();
 		WondersBlocks.init();
-		WondersBiomes.registerWondersBiomes();
+		WondersItems.init();
 
-		WondersUtils.registerUtils();
+		WondersBiomes.init();
 
 		LOGGER.info("Everything loaded from: {}!", mod.metadata().name());
 	}
