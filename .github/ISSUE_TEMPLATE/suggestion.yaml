@@ -17,8 +17,12 @@ body:
       description: "Describe the suggestion as clearly as possible. More info means the suggestion is more likely to be accepted."
       value: |
         Better beaches will make the beaches that generate in Minecraft bigger when they meet the ocean.
+    validations:
+      required: true
   - type: textarea
     id: context
     attributes:
       label: Additional context
       description: "Add any other context about the suggestion here."
+    validations:
+      required: true
