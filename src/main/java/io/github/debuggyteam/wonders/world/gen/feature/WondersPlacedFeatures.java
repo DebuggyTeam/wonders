@@ -6,6 +6,7 @@ import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.gen.decorator.BiomePlacementModifier;
 import net.minecraft.world.gen.decorator.InSquarePlacementModifier;
 import net.minecraft.world.gen.decorator.NoiseBasedCountPlacementModifier;
+import net.minecraft.world.gen.decorator.RarityFilterPlacementModifier;
 import net.minecraft.world.gen.feature.ConfiguredFeature;
 import net.minecraft.world.gen.feature.PlacedFeature;
 import net.minecraft.world.gen.feature.PlacementModifier;
@@ -15,9 +16,9 @@ import net.minecraft.world.gen.feature.util.PlacedFeatureUtil;
 import java.util.List;
 
 public class WondersPlacedFeatures {
-	private static final PlacedFeature _LOTS_OF_BAMBOO = placedFeature(VegetationConfiguredFeatures.BAMBOO_SOME_PODZOL, NoiseBasedCountPlacementModifier.create(115, 75.5, 0.73), InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.getInstance());
+	private static final PlacedFeature _LOTS_OF_BAMBOO = placedFeature(VegetationConfiguredFeatures.BAMBOO_SOME_PODZOL,NoiseBasedCountPlacementModifier.create(115, 75.5, 0.73), InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP, BiomePlacementModifier.getInstance());
 	public static final Holder<PlacedFeature> LOTS_OF_BAMBOO;
-	private static final PlacedFeature _COPPER_IRON_BOULDER = placedFeature(WondersConfiguredFeatures.COPPER_IRON_BOULDER, InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.OCEAN_FLOOR_HEIGHTMAP);
+	private static final PlacedFeature _COPPER_IRON_BOULDER = placedFeature(WondersConfiguredFeatures.COPPER_IRON_BOULDER, RarityFilterPlacementModifier.create(10), InSquarePlacementModifier.getInstance(), PlacedFeatureUtil.WORLD_SURFACE_WG_HEIGHTMAP);
 	/** @see io.github.debuggyteam.wonders.world.gen.feature.WondersConfiguredFeatures#COPPER_IRON_BOULDER */
 	public static final Holder<PlacedFeature> COPPER_IRON_BOULDER;
 

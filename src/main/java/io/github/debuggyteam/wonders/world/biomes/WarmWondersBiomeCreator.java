@@ -12,7 +12,7 @@ public class WarmWondersBiomeCreator {
 
 	public static Biome createBambooForest() {
 		GenerationSettings.Builder builder = new GenerationSettings.Builder()
-				.feature(GenerationStep.Feature.RAW_GENERATION, WondersPlacedFeatures.COPPER_IRON_BOULDER)
+				//.feature(GenerationStep.Feature.LOCAL_MODIFICATIONS, WondersPlacedFeatures.COPPER_IRON_BOULDER)
 				.feature(GenerationStep.Feature.VEGETAL_DECORATION, WondersPlacedFeatures.LOTS_OF_BAMBOO);
 		SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
 		DefaultBiomeFeatures.addJungleMobs(spawnBuilder);

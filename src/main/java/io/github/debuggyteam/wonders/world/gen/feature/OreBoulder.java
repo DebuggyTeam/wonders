@@ -32,20 +32,20 @@ public class OreBoulder<O> extends Feature<OreBoulderConfig> {
 		int blocksSubmerged = config.blocksSubmerged().get(random);
 		//since we're generating a bunch of mini features, we return the boolean AND of all of their results.
 		var val =
-			generateEighth(eastRadius, northRadius, topRadius, blocksSubmerged, true, true, true, position, context) &&
-			generateEighth(eastRadius, northRadius, bottomRadius, blocksSubmerged, true, true, false, position, context) &&
-			generateEighth(eastRadius, southRadius, topRadius, -blocksSubmerged, true, false, true, position, context) &&
-			generateEighth(eastRadius, southRadius, bottomRadius, -blocksSubmerged, true, false, false, position, context) &&
-			generateEighth(westRadius, northRadius, topRadius, blocksSubmerged, false, true, true, position, context) &&
-			generateEighth(westRadius, northRadius, bottomRadius, blocksSubmerged, false, true, false, position, context) &&
-			generateEighth(westRadius, southRadius, topRadius, -blocksSubmerged, false, false, true, position, context) &&
-			generateEighth(westRadius, southRadius, bottomRadius, -blocksSubmerged, false, false, false, position, context);
+			generateEighth(eastRadius, northRadius, topRadius, 0, true, true, true, position, context) &&
+			generateEighth(eastRadius, northRadius, bottomRadius, -0, true, true, false, position, context) &&
+			generateEighth(eastRadius, southRadius, topRadius, 0, true, false, true, position, context) &&
+			generateEighth(eastRadius, southRadius, bottomRadius, -0, true, false, false, position, context) &&
+			generateEighth(westRadius, northRadius, topRadius, 0, false, true, true, position, context) &&
+			generateEighth(westRadius, northRadius, bottomRadius, -0, false, true, false, position, context) &&
+			generateEighth(westRadius, southRadius, topRadius, 0, false, false, true, position, context) &&
+			generateEighth(westRadius, southRadius, bottomRadius, -0, false, false, false, position, context);
 
 		worldGenWorldAccess.setBlockState(context.getOrigin(), Blocks.BLUE_CONCRETE.getDefaultState(), 3);
 		return val;
     }
 
-	//generate the approriate section of the boulder
+	//generate the appropriate section of the boulder
 	protected boolean generateEighth(int xRadius, int zRadius, int yRadius, int blocksSubmerged, boolean east, boolean north, boolean up, BlockPos origin, FeatureContext<OreBoulderConfig> context) {
 		for(int y = blocksSubmerged; y < yRadius; y++) { // by adding the amount of blocks submerged, the y has less "time".
 			for(int x = 0; x < xRadius; x++) {
@@ -64,15 +64,14 @@ public class OreBoulder<O> extends Feature<OreBoulderConfig> {
 					}
 				}
 			}
-
 		}
 		return true;
 	}
 
-	protected boolean fallsInEllipsoid(int x, int y, int z, int a, int b, int c) {
-		return ((MathHelper.square(x) / MathHelper.square(a)) +
-				(MathHelper.square(y) / MathHelper.square(b)) +
-				(MathHelper.square(z) / MathHelper.square(c))) <= 1;
+	protected boolean fallsInEllipsoid(float x, float y, float z, float a, float b, float c) {
+		return ((MathHelper.square(x/a)) +
+				(MathHelper.square(y/b)) +
+				(MathHelper.square(z/c))) <= 1;
 	}
 
 }

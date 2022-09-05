@@ -15,7 +15,7 @@ import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 public class WondersConfiguredFeatures {
 	private static final ConfiguredFeature<OreBoulderConfig, ?> _COPPER_IRON_BOULDER = new ConfiguredFeature<>(WondersFeatures.ORE_BOULDER,
-			new OreBoulderConfig(UniformIntProvider.create(2, 5), UniformIntProvider.create(2, 5), UniformIntProvider.create(2, 5), UniformIntProvider.create(2, 5), UniformIntProvider.create(3, 5), UniformIntProvider.create(3, 5), UniformIntProvider.create(1, 3), SimpleBlockStateProvider.of(Blocks.MOSSY_COBBLESTONE.getDefaultState()), new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(Blocks.COPPER_ORE.getDefaultState(), 1).add(Blocks.IRON_ORE.getDefaultState(), 2).build()), UniformFloatProvider.create(0.04F, 0.041F)));
+			new OreBoulderConfig(UniformIntProvider.create(1, 3), UniformIntProvider.create(1, 3), UniformIntProvider.create(1, 3), UniformIntProvider.create(1, 3), UniformIntProvider.create(2, 3), UniformIntProvider.create(2, 3), UniformIntProvider.create(1, 3), SimpleBlockStateProvider.of(Blocks.MOSSY_COBBLESTONE.getDefaultState()), new WeightedBlockStateProvider(DataPool.<BlockState>builder().add(Blocks.COPPER_ORE.getDefaultState(), 1).add(Blocks.IRON_ORE.getDefaultState(), 2).build()), UniformFloatProvider.create(0.04F, 0.041F)));
 	/** Stone Boulder w/ 2.5% chance / block of having Iron Ore, and 1.5% chance of having Copper Ore. */
 	public static final Holder<ConfiguredFeature<?, ?>> COPPER_IRON_BOULDER;
 
