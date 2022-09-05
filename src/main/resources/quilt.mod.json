@@ -19,7 +19,8 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "io.github.debuggyteam.wonders.Wonders"
+			"init": "io.github.debuggyteam.wonders.Wonders",
+			"events": "io.github.debuggyteam.wonders.world.biomes.SurfaceRulesStuff"
 		},
 		"depends": [
 			{

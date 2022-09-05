@@ -61,7 +61,6 @@ public class WondersBiomes {
         //DefaultBiomeFeatures.addMossyRocks(builder);
         DefaultBiomeFeatures.addDefaultOres(builder);
         DefaultBiomeFeatures.addAmethystGeodes(builder);
-        DefaultBiomeFeatures.addUndergroundVariety(builder);
         return (new Biome.Builder()
                 .precipitation(Biome.Precipitation.RAIN)
                 .temperature(0.5f)
