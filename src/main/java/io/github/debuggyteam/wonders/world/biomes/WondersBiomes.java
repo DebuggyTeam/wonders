@@ -53,7 +53,7 @@ public class WondersBiomes {
         );
     }
 
-    private static Biome createDeadlands() {
+    private static Biome createDeadlands() { // hello
         GenerationSettings.Builder builder = new GenerationSettings.Builder();
                 //.feature(GenerationStep.Feature.VEGETAL_DECORATION, WondersVegetationPlacedFeatures.LOTS_OF_BAMBOO);
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
