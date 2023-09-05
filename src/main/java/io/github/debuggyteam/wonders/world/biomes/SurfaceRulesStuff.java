@@ -19,6 +19,16 @@ public class SurfaceRulesStuff implements SurfaceRuleEvents.OverworldModifierCal
                         )
                 )
         );
+
+        context.materialRules().add(0,
+                SurfaceRules.condition(
+                        SurfaceRules.abovePreliminarySurface(),
+                        SurfaceRules.condition(
+                                SurfaceRules.biome(WondersBiomes.INFERNAL),
+                                SurfaceRules.block(Blocks.CRIMSON_NYLIUM.getDefaultState())
+                        )
+                )
+        );
     }
 
     public static void init(){}
