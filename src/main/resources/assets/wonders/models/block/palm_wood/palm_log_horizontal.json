@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column_horizontal",
-  "textures": {
-    "end": "wonders:block/palm_wood/palm_log_top",
-    "side": "wonders:block/palm_wood/palm_log"
-  }
-}

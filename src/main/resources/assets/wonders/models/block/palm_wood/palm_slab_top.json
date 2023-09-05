@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/slab_top",
-	"textures": {
-		"bottom": "minecraft:block/bee_nest_side",
-		"side": "minecraft:block/bee_nest_side",
-		"top": "minecraft:block/bee_nest_side"
-	}
-}
