@@ -8,7 +8,7 @@
           "type": "minecraft:multi_noise",
           "preset": "minecraft:overworld"
         },
-        "settings": "minecraft:overworld"
+        "settings": "wonders:wonders_noise"
       }
     },
     "minecraft:the_end": {
